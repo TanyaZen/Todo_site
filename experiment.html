@@ -1,0 +1,75 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style_1.css" type="text/css" rel="stylesheet"> 
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Sedgwick+Ave" rel="stylesheet">
+  </head>
+
+  <body>
+	<div class="container" id="main">
+		<div class="row">
+			<div class="col-md-12">
+				<h1 class="header text-center">Your To-Do List</h1>
+			</div>
+		</div>
+
+	<!-- Buttons -->
+
+		<div class="row">
+        <div class="col-md-12">
+          <button type="button" class="btn btn-info active" data-toggle="modal" data-target="#project1">View List</button>
+          <button type="button" class="btn btn-info active">Edit List</button>
+          <button type="button" class="btn btn-info active">Memo</button>
+        </div>
+      </div>
+
+
+
+
+		<div class="row">
+			<div class="col-md-6">
+				<form role ="form" id="main_input_box">
+					<label>
+						<input type="text" class ="form-control" id="custom_textbox" name="Item" placeholder="What do you need to do?">
+						<input type="submit" value="Add" class="btn btn-primary add_button">
+					</label>
+				</form>
+
+				<form>
+					<ol class="list-group list_of_items">
+					</ol>
+				</form>	
+			</div>
+		</div>
+
+		
+	</div>
+
+	<!-- Modal -->
+
+
+    <div class="modal fade" id="project1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel"> Favorite App Page </h4>
+                </div>
+                <div class="modal-body">
+                    <img class="img-responsive" src="http://placekitten.com/555/200">
+                    This was my first project in this class. I learned a lot about HTML and CSS.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
