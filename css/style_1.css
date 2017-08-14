@@ -20,6 +20,14 @@ h1 {
 
 }
 
+.strikethrough:checked + span{
+  text-decoration:line-through
+}
+
+.col-md-12 {
+	display: block;
+}
+
 .btn {
 	 background: #3b9df1;
 	 border-radius: 0px;

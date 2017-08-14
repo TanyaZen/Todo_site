@@ -31,26 +31,35 @@
       </div>
 
 
-
-
 		<div class="row">
-			<div class="col-md-6">
-				<form role ="form" id="main_input_box">
+			<div class="col-md-12">
+				<form role ="form" id="checkbox">
 					<label>
-						<input type="text" class ="form-control" id="custom_textbox" name="Item" placeholder="What do you need to do?">
-						<input type="submit" value="Add" class="btn btn-primary add_button">
+						<input type="button" value="x" class="aaa">
+						<input type="checkbox" name="packersOff" class="strikethrough" value="1"><span>Do laundry</span>
+
+						
 					</label>
 				</form>
 
-				<form>
-					<ol class="list-group list_of_items">
-					</ol>
-				</form>	
+				
 			</div>
 		</div>
+<!-- Adding field with text -->
+		<div class="row">
+			<div class="col-md-12">
+				<form role ="form" id="task_input_box">
+					<label>
+						<input type="text" class ="form-control" id="custom_textbox" name="Item">
+						<input type="submit" value="Add" class="aaa">
+					</label>
+				</form>
 
-		
+				
+			</div>
+		</div
 	</div>
+		
 
 	<!-- Modal -->
 
@@ -59,7 +68,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title" id="myModalLabel"> Favorite App Page </h4>
+                    <h4 class="modal-title" id="myModalLabel"> Your current To-do list: </h4>
                 </div>
                 <div class="modal-body">
                     <img class="img-responsive" src="http://placekitten.com/555/200">
