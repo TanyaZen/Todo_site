@@ -1,5 +1,5 @@
 body {
-	font-family: 'Sedgwick Ave', cursive;
+	font-family: Helvetica, Arial, sans-serif;
 }
 
 body {
@@ -21,11 +21,50 @@ h1 {
 }
 
 .strikethrough:checked + span{
-  text-decoration:line-through
+  text-decoration:line-through;
 }
 
 .col-md-12 {
 	display: block;
+}
+
+.top_menu {
+	height: 40px;
+	width: 500px;
+	margin-bottom: 20px;
+}
+
+ul {
+  list-style-type: none;
+}
+
+li {
+	 font-size: 22px;
+	 height: 50px;
+	 width: 500px;
+	 margin: 0px;
+}
+
+#task_name {
+	padding-left: 16px;
+}
+
+#close_box {
+	padding-right: 16px;
+}
+
+#task_input_box {
+	font-size: 22px;
+	height: 50px;
+	width: 500px;
+	padding-right: 16px;
+	margin-left: 10px;
+}
+
+input[type=checkbox] {
+	width: 30px; 
+	height:30px;
+	vertical-align: middle;
 }
 
 .btn {

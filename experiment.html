@@ -8,8 +8,6 @@
     <link href="css/style_1.css" type="text/css" rel="stylesheet"> 
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300i" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Sedgwick+Ave" rel="stylesheet">
   </head>
 
   <body>
@@ -22,7 +20,7 @@
 
 	<!-- Buttons -->
 
-		<div class="row">
+		<div class="row top_menu">
         <div class="col-md-12">
           <button type="button" class="btn btn-info active" data-toggle="modal" data-target="#project1">View List</button>
           <button type="button" class="btn btn-info active">Edit List</button>
@@ -30,34 +28,34 @@
         </div>
       </div>
 
+      <!-- Task list elements with checkbox -->
 
 		<div class="row">
 			<div class="col-md-12">			
 			<ul>
-				<li><a href="">x</a>
-				<input type="checkbox" name="packersOff" class="strikethrough" value="1"><span id="task_name">Do laundry</span>	
+				<li><a href="" id="close_box">x</a>
+				<input type="checkbox" name="task_name" class="strikethrough" value="1"><span id="task_name">Do laundry</span>	
 				</li>
 
-				<li><a href="">x</a>
-				<input type="checkbox" name="packersOff" class="strikethrough" value="1"><span id="task_name">Do laundry</span>	
+				<li><a href="" id="close_box">x</a>
+				<input type="checkbox" name="task_name" class="strikethrough" value="1"><span id="task_name">Do laundry</span>	
 				</li>
 
-				<li><a href="">x</a>
-				<input type="checkbox" name="packersOff" class="strikethrough" value="1"><span id="task_name">Do laundry</span>	
+				<li><a href="" id="close_box">x</a>
+				<input type="checkbox" name="task_name" class="strikethrough" value="1"><span id="task_name">Do laundry</span>	
 				</li>
 			</ul>
 
 			</div>
 		</div>
-<!-- Adding field with text -->
+
+	<!-- Adding field with text -->
 
 		<div class="row">
 			<div class="col-md-12">
 				<form role ="form" id="task_input_box">
-					<label>
 						<input type="text" class ="form-control" id="custom_textbox" name="Item">
 						<input type="submit" value="Add" class="aaa">
-					</label>
 				</form>
 
 				
