@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <script type="text/javascript" src="js/main.js"></script>
     <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -30,9 +31,12 @@
 
       <!-- Task list elements with checkbox -->
 
+
+
 		<div class="row">
 			<div class="col-md-12">			
 			<ul>
+			<!--
 				<li><a href="" id="close_box">x</a>
 				<input type="checkbox" name="task_name" class="strikethrough" value="1"><span id="task_name">Do laundry</span>	
 				</li>
@@ -44,6 +48,7 @@
 				<li><a href="" id="close_box">x</a>
 				<input type="checkbox" name="task_name" class="strikethrough" value="1"><span id="task_name">Do laundry</span>	
 				</li>
+			-->		
 			</ul>
 
 			</div>
@@ -51,12 +56,14 @@
 
 	<!-- Adding field with text -->
 
+
+
 		<div class="row">
 			<div class="col-md-12">
-				<form role ="form" id="task_input_box">
+				<div id="task_input_box">
 						<input type="text" class ="form-control" id="custom_textbox" name="Item">
-						<input type="submit" value="Add" class="aaa">
-				</form>
+						<input type="button" value="Add" class="clickala" onclick="add_item()">
+				</div>
 
 				
 			</div>
