@@ -49,9 +49,10 @@ li {
 	padding-left: 16px;
 }
 
-#close_box {
+.close_box {
 	padding-right: 16px;
 }
+
 
 #task_input_box {
 	font-size: 22px;
