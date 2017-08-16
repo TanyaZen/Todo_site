@@ -43,10 +43,13 @@
 			<div class="col-md-12">
 			<ul id="list">
 			<!--
-				<li><a href="" id="close_box">x</a>
-				<input type="checkbox" name="task_name" class="strikethrough" value="1"><span id="task_name">Do laundry</span>	
-				</li>
-
+				'<li>
+					<a onclick="return remove_item(this)" href="" class="close_box" id="close_box%item_id%">x</a>
+					<input type="checkbox" name="task_name" class="strikethrough">
+					<div><span id="task_name%item_id%">%data%</span></div>
+					<div><span id="task_time%item_id%">%current_time%</span></div>
+					</li>';
+			
 				<li><a href="" id="close_box">x</a>
 				<input type="checkbox" name="task_name" class="strikethrough" value="1"><span id="task_name">Do laundry</span>	
 				</li>
@@ -73,7 +76,7 @@
 
 				
 			</div>
-		</div
+		</div>
 	</div>
 		
 
