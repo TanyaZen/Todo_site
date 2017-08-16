@@ -2,13 +2,14 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <script type="text/javascript" src="js/main.js"></script>
     <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/style_1.css" type="text/css" rel="stylesheet"> 
-     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  	<script type="text/javascript" src="js/main.js"></script>
+  	<title>Your super-Awesome to-do list!!</title>>
   </head>
 
   <body>
@@ -31,11 +32,15 @@
 
       <!-- Task list elements with checkbox -->
 
+      	<div class="row">
+			<div class="col-md-12 paragraph">
+			<p>Please add the first task</p>
+			</div>
+		</div>
 
 
 		<div class="row">
 			<div class="col-md-12">
-			<p>Please add the first task</p>
 			<ul id="list">
 			<!--
 				<li><a href="" id="close_box">x</a>
@@ -63,7 +68,7 @@
 			<div class="col-md-12">
 				<div id="task_input_box">
 						<input type="text" class ="form-control" id="custom_textbox" name="Item">
-						<input type="button" value="Add" class="clickala" onclick="add_item()">
+						<input type="button" value="Add" class="clickala" id="but" onclick="add_item()">
 				</div>
 
 				
