@@ -6,8 +6,21 @@ function taskObj (task_id, task_name, date_time) {
 
 var task_array = [];
 
-var newListElement = '<li><a onclick="return remove_item(this)" href="" class="close_box" id="close_box%item_id%">x</a><input type="checkbox" name="task_name" class="strikethrough"><span id="task_name%item_id%">%data%</span><span id="task_time%item_id%">%current_time%</span></li>';
+/*function find_id(finder) {
+	var a = $(finder).attr("id");
+	return a;
+}*/
 
+function delete_task(find_id) {
+	for (var i=0; i<task_array.length; i++) {
+    	if (task_array[i].task_id === find_id) {
+        		task_array.splice(i, 1);
+	    }
+    }
+}
+
+var newListElement = '<li><a onclick="return remove_item(this)" id="task%item_id%" href="" class="close_box" id="close_box%item_id%">x</a><input type="checkbox" name="task_name" class="strikethrough"><span>%data%</span><span id="task_time%item_id%">%current_time%</span></li>';
+//return $(elem).siblings("[id]")
 
 function setFocusToTextBox(){
     document.getElementById("custom_textbox").focus();
@@ -29,8 +42,11 @@ function add_item() {
 }
 
 function remove_item(close_a) {
-	
+	delete_task($(close_a).attr("id"));
+		
+
 	$(close_a).parent('li').remove();
+	
 	return false;
 }
 
