@@ -17,7 +17,6 @@ function delete_task(find_id) {
 }
 
 var newListElement = '<li><a onclick="return remove_item(this)" id="task%item_id%" href="" class="close_box" id="close_box%item_id%">x</a><input type="checkbox" name="task_name" class="strikethrough"><span>%data%</span><span class="time_class" id="task_time%item_id%">%current_time%</span></li>';
-//return $(elem).siblings("[id]")
 
 function setFocusToTextBox(){
     document.getElementById("custom_textbox").focus();
@@ -89,6 +88,23 @@ function time_getter() {
 
 	var vremya = m + "/" + d + "/" + y + " " + e + ":" + f;
 	return vremya;
+}
+
+//show modal - list of tasks
+
+function show_full_task_list() {
+	
+	for (var i = 0, length = task_array.length; i < length; i++) {
+		var line_item = '<li class="child">%data%</li>';
+		var new_line_item = line_item.replace("%data%", task_array[i].task_name);
+		$('#show_full_list').append(new_line_item);
+	}
+}
+
+//Modal - close window - empty list
+
+function zero_out() {
+	$('.parent .child').remove();
 }
 
 //add functionality to be able to add item when pressing Enter

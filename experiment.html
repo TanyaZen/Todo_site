@@ -24,7 +24,7 @@
 
 		<div class="row top_menu">
         <div class="col-md-12">
-          <button type="button" class="btn btn-info active" data-toggle="modal" data-target="#project1">View List</button>
+          <button type="button" class="btn btn-info active" data-toggle="modal" data-target="#project1" onclick="show_full_task_list()">View List</button>
           <button type="button" class="btn btn-info active">Edit List</button>
           <button type="button" class="btn btn-info active">Memo</button>
         </div>
@@ -90,11 +90,14 @@
                     <h4 class="modal-title" id="myModalLabel"> Your current To-do list: </h4>
                 </div>
                 <div class="modal-body">
+                	<ol class="parent" id="show_full_list">
+                		
+                	</ol>
+
                     
-                    This was my first project in this class. I learned a lot about HTML and CSS.
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal" onclick="zero_out()">Close</button>
                 </div>
             </div>
         </div>
