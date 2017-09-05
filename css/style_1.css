@@ -3,7 +3,7 @@ body {
 }
 
 body {
-	background-color: #d9edf7;
+	background-color: #f4f3f3;
 	background-repeat: no-repeat;
 	background-size: contain;
 	background-position: center;
@@ -56,6 +56,17 @@ li {
 	 height: 50px;
 	 width: 500px;
 	 margin: 0px;
+}
+
+span {
+
+	padding-left: 10px;
+}
+
+.time_class {
+	padding-left: 20px;
+	font-size: 13px;
+	font-style: italic;
 }
 
 #task_name {
