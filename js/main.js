@@ -5,7 +5,7 @@ function taskObj (task_id, task_name, date_time, status) {
             	this.status = status;
             }; 
 
-var task_array = [];
+//var task_array = [];
 
 //delete task from array function
 
@@ -141,4 +141,23 @@ $( document ).ready(function() {
     	}
     })
 });
+
+//saving array in localStorage
+
+$(window).on('beforeunload', function() {
+  if (typeof(Storage) !== "undefined") {
+
+  		function localStore() {
+    		return window.localStorage.setItem('task_array', JSON.stringify(task_array));
+		}
+  }
+});
+
+//retrieving array on page upload
+
+$(document).ready(function localGet() {
+    return JSON.parse(window.localStorage.getItem('task_array'));
+});
+
+
 
