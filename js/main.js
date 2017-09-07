@@ -1,22 +1,46 @@
-function taskObj (task_id, task_name, date_time) {
+function taskObj (task_id, task_name, date_time, status) {
 				this.task_id = task_id;
             	this.task_name = task_name;
             	this.date_time = date_time;
+            	this.status = status;
             }; 
 
 var task_array = [];
 
-//delete task function
+//delete task from array function
 
 function delete_task(find_id) {
 	for (var i=0; i<task_array.length; i++) {
-    	if (task_array[i].task_id === find_id) {
+    	if (task_array[i].task_id === find_id) 
         		task_array.splice(i, 1);
-	    }
+	    
     }
+};
+
+//change marked task status to "Completed"
+
+function task_completed (task_number) {
+	for (var i=0; i<task_array.length; i++) {
+		if (task_array[i].task_id === $(task_number).siblings("a").attr("id")) {
+			task_array[i].status = "Completed";
+		}
+	}
 }
 
-var newListElement = '<li><a onclick="return remove_item(this)" id="task%item_id%" href="" class="close_box" id="close_box%item_id%">x</a><input type="checkbox" name="task_name" class="strikethrough"><span>%data%</span><span class="time_class" id="task_time%item_id%">%current_time%</span></li>';
+
+//delete completed checked tasks
+
+function delete_completed_tasks() {
+	for (var i=task_array.length-1; i>=0; i--) {
+		if (task_array[i].status === "Completed") 
+			task_array.splice(i, 1);
+	    };
+	$('input[name=task_name]:checked').parent().remove();
+    }
+
+
+
+var newListElement = '<li><a onclick="return remove_item(this)" id="task%item_id%" href="" class="close_box" id="close_box%item_id%">x</a><input type="checkbox" name="task_name" class="strikethrough" onchange="task_completed(this)"><span>%data%</span><span class="time_class" id="task_time%item_id%">%current_time%</span></li>';
 
 function setFocusToTextBox(){
     document.getElementById("custom_textbox").focus();
@@ -47,7 +71,7 @@ function add_item() {
 	} else {
 
 		var newListElement_edit = newListElement.replace("%data%", showText.value).replace(/%item_id%/g, nextId).replace("%current_time%", "Added "+time_getter());
-		var new_task = new taskObj('task'+this.nextId, showText.value, time_getter());
+		var new_task = new taskObj('task'+this.nextId, showText.value, time_getter(), "Incomplete");
 		task_array.push(new_task); 
 		nextId+=1;
 		$("#list").append(newListElement_edit);
@@ -59,7 +83,7 @@ function add_item() {
     	
 }
 
-//removing item when clicking x box
+//removing item from DOM when clicking x box
 
 function remove_item(close_a) {
 	if (confirm("Are you sure you want to delete this item?")) {
@@ -105,6 +129,7 @@ function show_full_task_list() {
 
 function zero_out() {
 	$('.parent .child').remove();
+
 }
 
 //add functionality to be able to add item when pressing Enter
