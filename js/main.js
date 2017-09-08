@@ -225,6 +225,16 @@ function AjaxRequest() {
     };
 }; 
 
+//simple AJAX request
+
+$(document).ready(function() {
+	$("#reminder").on('click', 'button.switch', function() {
+		$.ajax('result.html').done(function(response) {
+			$("#result").html()
+		});
+	});
+});
+
 
 
 
