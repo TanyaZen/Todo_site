@@ -50,7 +50,7 @@ function delete_completed_tasks() {
 
 
 
-var newListElement = '<li><a onclick="return remove_item(this)" id="task%item_id%" href="" class="close_box" id="close_box%item_id%">x</a><input type="checkbox" name="task_name" class="strikethrough" onchange="task_completed(this)"><span>%data%</span><span class="time_class" id="task_time%item_id%">%current_time%</span></li>';
+var newListElement = '<li><a onclick="return remove_item(this)" id="task%item_id%" href="" class="close_box" id="close_box%item_id%">x</a><input type="checkbox" name="task_name" class="strikethrough" onchange="task_completed(this)"><span>%data%</span><span class="time_class" id="time_task%item_id%">%current_time%</span></li>';
 
 function setFocusToTextBox(){
     document.getElementById("custom_textbox").focus();
@@ -167,7 +167,7 @@ function unnullArray () {
    }
 function load_saved_tasks() {
 	for (var i=0; i<task_array.length; i++) {
-	var newListElement_saved = newListElement.replace("%data%", task_array[i].task_name).replace(/%item_id%/g, task_array[i].task_id).replace("%current_time%", "Added " + task_array[i].date_time);
+	var newListElement_saved = newListElement.replace("%data%", task_array[i].task_name).replace(/task%item_id%/g, task_array[i].task_id).replace("%current_time%", "Added " + task_array[i].date_time);
 	$("#list").append(newListElement_saved);
 	};
 	$('p').hide();
