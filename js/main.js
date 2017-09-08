@@ -5,7 +5,8 @@ function taskObj (task_id, task_name, date_time, status) {
             	this.status = status;
             }; 
 
-//var task_array = [];
+var task_array=[];
+AjaxRequest();
 
 //delete task from array function
 
@@ -13,9 +14,16 @@ function delete_task(find_id) {
 	for (var i=0; i<task_array.length; i++) {
     	if (task_array[i].task_id === find_id) 
         		task_array.splice(i, 1);
-	    
+  
     }
+    save_list_storage();
 };
+
+//save task list in local storage
+
+function save_list_storage () {
+	window.localStorage.setItem('task_array', JSON.stringify(task_array));
+}
 
 //change marked task status to "Completed"
 
@@ -25,6 +33,7 @@ function task_completed (task_number) {
 			task_array[i].status = "Completed";
 		}
 	}
+	save_list_storage();
 }
 
 
@@ -36,7 +45,8 @@ function delete_completed_tasks() {
 			task_array.splice(i, 1);
 	    };
 	$('input[name=task_name]:checked').parent().remove();
-    }
+	save_list_storage();
+}
 
 
 
@@ -69,7 +79,7 @@ function add_item() {
 	if (contains (showText.value)) {
 		window.alert("This Task is already in the list");
 	} else {
-
+		nextId=task_array.length;
 		var newListElement_edit = newListElement.replace("%data%", showText.value).replace(/%item_id%/g, nextId).replace("%current_time%", "Added "+time_getter());
 		var new_task = new taskObj('task'+this.nextId, showText.value, time_getter(), "Incomplete");
 		task_array.push(new_task); 
@@ -79,7 +89,8 @@ function add_item() {
 		$(".paragraph").css('height', '20px');   	
 		document.getElementById('custom_textbox').value='';
 		setFocusToTextBox();
-	} 
+	}
+	save_list_storage(); 
     	
 }
 
@@ -139,25 +150,82 @@ $( document ).ready(function() {
     	if(event.keyCode == 13){
         	$("#but").click();
     	}
-    })
+    });
+
+   unnullArray();
+   AjaxRequest();
+   load_saved_tasks();
+
 });
 
-//saving array in localStorage
+function unnullArray () {
+   	task_array = JSON.parse(window.localStorage.getItem('task_array'));
+   		if (task_array==null) {
+   			task_array=[];
+   		}
 
-$(window).on('beforeunload', function() {
-  if (typeof(Storage) !== "undefined") {
+   }
+function load_saved_tasks() {
+	for (var i=0; i<task_array.length; i++) {
+	var newListElement_saved = newListElement.replace("%data%", task_array[i].task_name).replace(/%item_id%/g, task_array[i].task_id).replace("%current_time%", "Added " + task_array[i].date_time);
+	$("#list").append(newListElement_saved);
+	};
+	$('p').hide();
+	$(".paragraph").css('height', '20px');   
+}
 
-  		function localStore() {
-    		return window.localStorage.setItem('task_array', JSON.stringify(task_array));
-		}
-  }
-});
+//AJAX request
 
-//retrieving array on page upload
+function AjaxRequest() {
+	var url = "http://api.openweathermap.org/data/2.5/weather?zip=94595,us";
+	var apiKey = "047abc3174f816049218e3246d595107"; // Replace "APIKEY" with your own API key; otherwise, your HTTP request will not work
+    var httpRequest;
 
-$(document).ready(function localGet() {
-    return JSON.parse(window.localStorage.getItem('task_array'));
-});
+    //create and send XHR request
+
+    function makeRequest() {
+    	httpRequest = new XMLHttpRequest();
+    	httpRequest.onreadystatechange = responseMethod;
+    	httpRequest.open('GET', url + '&appid=' + apiKey);
+    	httpRequest.send();
+    };
+
+    //handle XHR Response
+
+    function responseMethod() {
+    	if (httpRequest.readyState ===4) {
+    		if (httpRequest.status ===200) {
+    			updateUISuccess(httpRequest.responseText);
+
+    		} else {
+    			updateUIError();	
+    		}
+    		console.log(httpRequest.responseText);
+    	}
+    };
+
+    //handle XHR success
+
+    function updateUISuccess (responseText) {
+    	var response = JSON.parse(responseText);
+    	var condition = response.weather[0].main;
+    	var degC = response.main.temp - 273.15;
+    	var degCInt = Math.floor(degC);
+    	var degF = degC * 1.8 +32;
+    	var degFInt = Math.floor(degF);
+    	var weatherBox = $('#weather');
+    	weatherBox.InnerHTML = "<p>" + degCInt + "&#176; C / " + degFInt + "&#176; F</p></p>" + condition + "</p>";
+    };
+
+    //handle error
+
+    function updateUIError() {
+    	var weatherBox = $('#weather');
+    	alert("Error");
+    };
+}; 
+
+
 
 
 

@@ -9,6 +9,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   	<script type="text/javascript" src="js/main.js"></script>
+  	
+
   	<title>Your super-Awesome to-do list!!</title>
   </head>
 
@@ -28,7 +30,9 @@
           <button type="button" class="btn btn-info active" onclick="delete_completed_tasks()">Remove Completed
           </button>
           <button type="button" class="btn btn-info active">Memo</button>
+          <span id="weather"></span>
         </div>
+
       </div>
 
       <!-- Task list elements with checkbox -->
@@ -73,10 +77,10 @@
 				<div id="task_input_box">
 						<input type="text" class ="form-control" id="custom_textbox" name="Item">
 						<input type="button" value="Add" class="clickala" id="but" onclick="add_item()">
-				</div>
-
-				
+						
+				</div>			
 			</div>
+			
 		</div>
 	</div>
 		
