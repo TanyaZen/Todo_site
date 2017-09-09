@@ -160,6 +160,7 @@ $( document ).ready(function() {
 
 function unnullArray () {
    	task_array = JSON.parse(window.localStorage.getItem('task_array'));
+   	//add check if the array is empty in local storage
    		if (task_array==null) {
    			task_array=[];
    		}
@@ -228,9 +229,16 @@ function AjaxRequest() {
 //simple AJAX request
 
 $(document).ready(function() {
-	$("#reminder").on('click', 'button.switch', function() {
-		$.ajax('result.html').done(function(response) {
-			$("#result").html()
+	$("#reminder").on('click', function() {
+		$.ajax('https://mev.com').done(function(response) {		
+			    alert( "success" );
+			  })
+			  .fail(function() {
+			    alert( "error" );
+			  })
+			  .always(function() {
+			    alert( "complete" );
+			//$("#result").html(response);
 		});
 	});
 });
